@@ -1,0 +1,46 @@
+{
+  "id": 9008466,
+  "block": 20091893,
+  "latestSettlementBlock": 20091892,
+  "orders": [
+    {
+      "uid": "0x1f908d6f01acab2a903ebaf854198e789b11ad1d733cff24f2791155684a2059cd01bd317df6419af020eeb43e58d7d0c7c48f29666c9524",
+      "sellToken": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+      "buyToken": "0x6982508145454ce325ddbe47a25d4ec3d2311933",
+      "sellAmount": "401985279546821022",
+      "buyAmount": "125237323855155590234295042",
+      "protocolFees": [
+        {
+          "priceImprovement": {
+            "factor": 0.5,
+            "maxVolumeFactor": 0.01,
+            "quote": {
+              "sellAmount": "401985279546821022",
+              "buyAmount": "126719694369508828561662681",
+              "fee": "2706038793168044"
+            }
+          }
+        }
+      ],
+      "validTo": 1718392100,
+      "kind": "sell",
+      "receiver": "0xcd01bd317df6419af020eeb43e58d7d0c7c48f29",
+      "owner": "0xcd01bd317df6419af020eeb43e58d7d0c7c48f29",
+      "partiallyFillable": false,
+      "executed": "0",
+      "preInteractions": [],
+      "postInteractions": [],
+      "sellTokenBalance": "erc20",
+      "buyTokenBalance": "erc20",
+      "class": "limit",
+      "appData": "0xf249b3db926aa5b5a1b18f3fec86b9cc99b9a8a99ad7e8034242d2838ae97422",
+      "signingScheme": "eip712",
+      "signature": "0xd41f949dc6af264b33a6f6fda76cc4828e42eac5059a8ace8dba0ce619136f6a082c1f9701f75ac82558218eeaa59a91d7adf39a232395d2311066c8c6a8b11f1c"
+    }
+  ],
+  "prices": {
+    "0x0000000000ca73a6df4c58b84c5b4b847fe8ff39": "350991256217877248",
+    "0x0000206329b97db379d5e1bf586bbdb969c63274": "294309011979322",
+    "0x0001a500a6b18995b03f44bb040a5ffc28e45cb0": "465582784046718"
+  }
+}
