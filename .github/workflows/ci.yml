@@ -1,0 +1,88 @@
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request_target:
+    branches: [main]
+
+env:
+  CARGO_TERM_COLOR: always
+
+jobs:
+  test:
+    if: github.repository == 'cakevm/cowprotocol-client-rs'
+    name: make test
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: ${{ github.event.pull_request.head.sha || github.ref }}
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: Swatinem/rust-cache@v2
+
+      - run: make test
+
+  fmt:
+    if: github.repository == 'cakevm/cowprotocol-client-rs'
+    name: make fmt-check
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: ${{ github.event.pull_request.head.sha || github.ref }}
+      - uses: dtolnay/rust-toolchain@stable
+
+      - run: make fmt-check
+
+  taplo:
+    if: github.repository == 'cakevm/cowprotocol-client-rs'
+    name: make taplo-check
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: ${{ github.event.pull_request.head.sha || github.ref }}
+      - uses: dtolnay/rust-toolchain@clippy
+      - run: cargo install taplo-cli --version ^0.9 --locked
+      - run: make taplo-check
+
+  clippy:
+    if: github.repository == 'cakevm/cowprotocol-client-rs'
+    name: make clippy
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: ${{ github.event.pull_request.head.sha || github.ref }}
+      - uses: dtolnay/rust-toolchain@clippy
+        with:
+          toolchain: "1.82"
+      - uses: Swatinem/rust-cache@v2
+
+      # workaround for latest stable rust
+      - run: cargo +1.82 clippy --all-targets --all-features -- -D warnings
+
+  deny:
+    if: github.repository == 'cakevm/cowprotocol-client-rs'
+    name: cargo deny check
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: ${{ github.event.pull_request.head.sha || github.ref }}
+      - uses: EmbarkStudios/cargo-deny-action@v1
+        with:
+          log-level: warn
+          command: check
+          arguments: --all-features

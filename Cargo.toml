@@ -2,14 +2,12 @@
 name = "cowprotocol-api-rs"
 version = "0.1.0"
 edition = "2021"
-rust-version = "1.80.0"
+license = "Apache-2.0"
 
 [dependencies]
-thiserror = "1.0"
-reqwest = { version = "0.12", default-features = false, features = [
-    "rustls-tls", "json"
-] }
-serde = { version = "1.0", features = ["derive"] }
-serde_json = { version = "1.0"}
-tokio = { version = "1.0.0", features = ["rt", "rt-multi-thread", "macros"] }
-alloy-primitives = { version = "0.8", features = ["serde"] }
+alloy-primitives = { version = "0.8.9", features = ["serde"] }
+reqwest = { version = "0.12.8", default-features = false, features = ["json", "rustls-tls"] }
+serde = { version = "1.0.213", features = ["derive"] }
+serde_json = { version = "1.0.132" }
+thiserror = "1.0.65"
+tokio = { version = "1.41.0", features = ["macros", "rt", "rt-multi-thread"] }
