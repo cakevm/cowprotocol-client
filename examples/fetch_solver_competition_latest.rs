@@ -7,7 +7,7 @@ async fn main() {
     match solver_competition_latest {
         Ok(solver_competition) => {
             println!("Auction ID: {}", solver_competition.auction_id);
-            match solver_competition.solutions.get(0) {
+            match solver_competition.solutions.first() {
                 Some(solution) => {
                     println!("First Solution: {:#?}", solution);
                 }

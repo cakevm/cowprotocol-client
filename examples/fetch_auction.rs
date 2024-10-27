@@ -7,7 +7,7 @@ async fn main() {
     match auction_result {
         Ok(auction) => {
             println!("Auction ID: {}", auction.id);
-            match auction.orders.get(0) {
+            match auction.orders.first() {
                 Some(order) => println!("First Order: {:#?}", order),
                 None => println!("No orders found."),
             }
