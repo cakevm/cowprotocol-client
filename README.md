@@ -12,6 +12,37 @@ Current concept for types:
 Future concept for types:
 - Alloy for all types
 
+### APIs
+```
+- Solver API (driver)
+  - /quote (GET)
+  - /solve (POST)
+  - /reveal (POST)
+  - /settle (POST)
+
+- Solver Engine API (solvers)
+  - /solve (POST)
+  - /notify (POST)
+
+- Order Book API (orderbook)
+  - /orders (POST, DELETE)
+  - /orders/{UID} (GET, DELETE)
+  - /orders/{UID}/status (GET)
+  - /transactions/{txHash}/orders (GET)
+  - /trades (GET)
+  - /auction (GET)
+  - /account/{owner}/orders (GET)
+  - /token/{token}/native_price (GET)
+  - /quote (POST)
+  - /solver_competition/{auction_id} (GET)
+  - /solver_competition/by_tx_hash/{tx_hash} (GET)
+  - /solver_competition/latest (GET)
+  - /version (GET)
+  - /app_data/{app_data_hash} (GET, PUT)
+  - /app_data (PUT)
+  - /users/{address}/total_surplus (GET)
+```
+
 ## Usage
 See the [examples](./examples) directory for usage examples.
 
