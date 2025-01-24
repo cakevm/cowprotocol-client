@@ -1,5 +1,3 @@
-pub const PROTOCOL_VERSION: &str = "v1";
-
 pub const API_BASE_MAINNET_PROD: &str = "https://api.cow.fi/mainnet";
 pub const API_BASE_MAINNET_STAGING: &str = "https://barn.api.cow.fi/mainnet";
 

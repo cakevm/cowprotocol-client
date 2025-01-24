@@ -3,11 +3,12 @@ allow = [
   # permissive licenses
   "0BSD",
   "Apache-2.0",
+  "BSD-2-Clause",
   "BSD-3-Clause",
   "BSL-1.0",
   "ISC",
   "MIT",
-  "Unicode-DFS-2016",
+  "Unicode-3.0",
   "Unlicense",
   "Zlib",
   # permissive license with unclear patent grant
@@ -24,6 +25,19 @@ expression = "ISC AND MIT AND OpenSSL"
 license-files = [{ path = "LICENSE", hash = 0xbd0eed23 }]
 name = "ring"
 
+[advisories]
+ignore = [
+  # idna url parsing is not used, is a transient dependency from the model - https://rustsec.org/advisories/RUSTSEC-2024-0421
+  "RUSTSEC-2024-0421",
+
+]
+yanked = "warn"
 
 [bans]
 multiple-versions = "allow"
+
+[sources]
+allow-git = [
+  "https://github.com/cowprotocol/services",
+  "https://github.com/cakevm/cowprotocol-solvers-dto-alloy"
+]

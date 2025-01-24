@@ -1,10 +1,11 @@
 pub mod auction;
 pub mod solver_competition;
-
 use crate::constants::{
     API_BASE_ARBITRUM_ONE_PROD, API_BASE_ARBITRUM_ONE_STAGING, API_BASE_GNOSIS_CHAIN_PROD, API_BASE_GNOSIS_CHAIN_STAGING,
     API_BASE_MAINNET_PROD, API_BASE_MAINNET_STAGING, API_BASE_SEPOLIA_PROD, API_BASE_SEPOLIA_STAGING,
 };
+use alloy_primitives::{hex, TxHash};
+use cowprotocol_solvers_dto_alloy::order_uid::OrderUid;
 use thiserror::Error;
 
 #[derive(Debug, Error)]
@@ -56,5 +57,13 @@ impl ApiUrl {
 
     pub fn solver_competition_latest(&self) -> String {
         format!("{}/solver_competition/latest", self.base)
+    }
+
+    pub fn solver_competition_by_tx_hash(&self, tx_hash: &TxHash) -> String {
+        format!("{}/solver_competition/by_tx_hash/{}", self.base, hex::encode_prefixed(tx_hash))
+    }
+
+    pub(crate) fn get_order(&self, order_uid: &OrderUid) -> String {
+        format!("{}/orders/{}", self.base, order_uid.0)
     }
 }

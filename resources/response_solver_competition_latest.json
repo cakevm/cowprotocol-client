@@ -3,6 +3,7 @@
   "transactionHash": "0xc3afa3f8b9f65c765edc80ad6dfe0048dabbdcb1c6606fd56cec17ec78a6010e",
   "auctionStartBlock": 20092228,
   "competitionSimulationBlock": 20092230,
+  "transactionHashes": ["0x044499c2a830890cb0a8ecf9aec6c5621e8310092a58d369cdef726254d3d108"],
   "auction": {
     "orders": [
       "0x9382c4a6ef4d2031e57a28f384b6333e7ba301bd9c1930f0029a118b6ec4d1bd301076c36e034948a747bb61bab9cd03f62672e3666c9ee8",

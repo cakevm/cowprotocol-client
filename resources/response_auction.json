@@ -17,11 +17,13 @@
             "quote": {
               "sellAmount": "401985279546821022",
               "buyAmount": "126719694369508828561662681",
-              "fee": "2706038793168044"
+              "fee": "2706038793168044",
+              "solver": "0xcd01bd317df6419af020eeb43e58d7d0c7c48f29"
             }
           }
         }
       ],
+      "created": 1718392000,
       "validTo": 1718392100,
       "kind": "sell",
       "receiver": "0xcd01bd317df6419af020eeb43e58d7d0c7c48f29",

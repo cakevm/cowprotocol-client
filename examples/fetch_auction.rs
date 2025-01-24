@@ -1,4 +1,4 @@
-use cowprotocol_api_rs::client::{OrderBookApiClient, OrderBookApiConfig};
+use cowprotocol_client::client::{OrderBookApiClient, OrderBookApiConfig};
 
 #[tokio::main]
 async fn main() {

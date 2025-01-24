@@ -1,13 +1,20 @@
 [package]
-name = "cowprotocol-api-rs"
+name = "cowprotocol-client"
 version = "0.1.0"
 edition = "2021"
-license = "Apache-2.0"
+license = "MIT OR Apache-2.0"
 
 [dependencies]
-alloy-primitives = { version = "0.8.9", features = ["serde"] }
-reqwest = { version = "0.12.8", default-features = false, features = ["json", "rustls-tls"] }
-serde = { version = "1.0.213", features = ["derive"] }
-serde_json = { version = "1.0.132" }
-thiserror = "1.0.65"
-tokio = { version = "1.41.0", features = ["macros", "rt", "rt-multi-thread"] }
+alloy-primitives = { version = "0.8.19", features = ["serde"] }
+ethereum-types = "0.14.1"
+reqwest = { version = "0.12.12", default-features = false, features = ["json", "rustls-tls"] }
+serde = { version = "1.0.217", features = ["derive"] }
+serde_json = { version = "1.0.137" }
+thiserror = "2.0.11"
+
+cowprotocol-solvers-dto-alloy = {git = "https://github.com/cakevm/cowprotocol-solvers-dto-alloy", rev = "298feba"}
+services-model = {  git = "https://github.com/cowprotocol/services", rev = "01f35f8", package = "model"}
+
+[dev-dependencies]
+tokio = { version = "1.43.0", features = ["macros", "rt", "rt-multi-thread"] }
+eyre = "0.6.12"
