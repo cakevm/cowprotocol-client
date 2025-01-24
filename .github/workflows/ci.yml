@@ -49,8 +49,15 @@ jobs:
         with:
           fetch-depth: 0
           ref: ${{ github.event.pull_request.head.sha || github.ref }}
-      - uses: dtolnay/rust-toolchain@clippy
-      - run: cargo install taplo-cli --version ^0.9 --locked
+      - uses: dtolnay/rust-toolchain@stable
+      - name: Install taplo
+        env:
+          version: "0.9.3"
+        run: |
+          curl -Ls "https://github.com/tamasfe/taplo/releases/download/${{ env.version }}/taplo-full-linux-x86_64.gz" | \
+          gzip -d > taplo && \
+          chmod +x taplo && \
+          sudo mv taplo /usr/local/bin/taplo
       - run: make taplo-check
 
   clippy:
@@ -65,11 +72,10 @@ jobs:
           ref: ${{ github.event.pull_request.head.sha || github.ref }}
       - uses: dtolnay/rust-toolchain@clippy
         with:
-          toolchain: "1.82"
+          toolchain: "1.84"
       - uses: Swatinem/rust-cache@v2
 
-      # workaround for latest stable rust
-      - run: cargo +1.82 clippy --all-targets --all-features -- -D warnings
+      - run: cargo clippy --all-targets --all-features -- -D warnings
 
   deny:
     if: github.repository == 'cakevm/cowprotocol-client-rs'
