@@ -12,9 +12,9 @@ serde = { version = "1.0.217", features = ["derive"] }
 serde_json = { version = "1.0.137" }
 thiserror = "2.0.11"
 
-cowprotocol-solvers-dto-alloy = {git = "https://github.com/cakevm/cowprotocol-solvers-dto-alloy", rev = "298feba"}
-services-model = {  git = "https://github.com/cowprotocol/services", rev = "01f35f8", package = "model"}
+cowprotocol-solvers-dto-alloy = { git = "https://github.com/cakevm/cowprotocol-solvers-dto-alloy", rev = "298feba" }
+services-model = { git = "https://github.com/cowprotocol/services", rev = "01f35f8", package = "model" }
 
 [dev-dependencies]
-tokio = { version = "1.43.0", features = ["macros", "rt", "rt-multi-thread"] }
 eyre = "0.6.12"
+tokio = { version = "1.43.0", features = ["macros", "rt", "rt-multi-thread"] }

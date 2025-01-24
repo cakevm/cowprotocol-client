@@ -1,4 +1,4 @@
-.PHONY: build run test clean fmt fmt-check clippy taplo taplo-check deny-check
+.PHONY: build run test clean fmt fmt-check clippy taplo taplo-check deny-check pre-release
 
 build:
 	cargo build --all
@@ -32,3 +32,11 @@ taplo-check:
 
 deny-check:
 	cargo deny --all-features check
+
+.PHONY: pre-release
+pre-release:
+	make fmt
+	make clippy
+	make test
+	make taplo-check
+	make deny-check

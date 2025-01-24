@@ -1,5 +1,5 @@
+use crate::types::auction::AuctionWithId;
 use crate::types::{ApiUrl, Chain, OrderBookApiError};
-use crate::types::{auction::AuctionWithId};
 use alloy_primitives::TxHash;
 use cowprotocol_solvers_dto_alloy::order_uid::OrderUid;
 use reqwest::{Client, ClientBuilder};
